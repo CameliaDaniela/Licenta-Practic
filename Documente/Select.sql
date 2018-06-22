@@ -38,6 +38,7 @@ exec aproximate_result @maxTimeStmp= 30, @tip='SPJA'
 go
 exec right_result @maxTimeStmp= 50, @tip='SPJA'
 go
+--SELECT PROJECT JOIN
 select * from Query
 select * from Car
 where Speed<50

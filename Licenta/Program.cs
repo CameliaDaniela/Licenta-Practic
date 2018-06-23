@@ -12,8 +12,8 @@ namespace Licenta
         {
 
             //StreamInsight streamInsight = new StreamInsight(4,10);
-            StreamInsight streamInsight = new StreamInsight(10, 100, 10, 1);
-            for (int i = 1; i <= 10; i++)
+            StreamInsight streamInsight = new StreamInsight(10, 10, 10, 6);
+            for (int i = 1; i <= 30; i++)
                 streamInsight.App(i);
             //no values/ minute, no events in the flow, no road segments, window size
 

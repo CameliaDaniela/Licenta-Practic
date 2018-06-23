@@ -78,9 +78,9 @@ namespace Licenta
 
                                           };
                     //List<double> list;
-                    var query = from ob in stream
-                                where ob.Value.Speed < 50
-                                select ob.Value;
+                    //var query = from ob in stream
+                    //            where ob.Value.Speed < 50
+                    //            select ob.Value;
                     //var query = from cars in stream.SnapshotWindow()
                     //                     select new {
                     //                         avreage = cars.Avg(e => e.Value.Speed),
@@ -92,14 +92,14 @@ namespace Licenta
                     //                avreage = ob.Avg(e => e.Value.Speed),
                     //                groupId = 1
                     //            };
-                    //var query = from rs in stream
-                    //            group rs by rs.Value.RoadSegment into roadSeg
-                    //            from ob in roadSeg.HoppingWindow(TimeSpan.FromSeconds(WinSize), TimeSpan.FromSeconds(1))
-                    //            select new
-                    //            {
-                    //                avreage = ob.Avg(e => e.Value.Speed),
-                    //                groupId = roadSeg.Key
-                    //            };
+                    var query = from rs in stream
+                                group rs by rs.Value.RoadSegment into roadSeg
+                                from ob in roadSeg.HoppingWindow(TimeSpan.FromSeconds(WinSize), TimeSpan.FromSeconds(5))
+                                select new
+                                {
+                                    avreage = ob.Avg(e => e.Value.Speed),
+                                    groupId = roadSeg.Key
+                                };
                     //var query = from rs in stream
                     //            group rs by rs.Value.RoadSegment into roadSeg
                     //            from ob in roadSeg.SnapshotWindow()
